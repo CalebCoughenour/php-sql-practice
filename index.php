@@ -31,8 +31,8 @@
     <button type="submit" name="submit">Sign Up</button>
     </form> -->
 
-
-    <?php
+    <!-- THIS CODE: Will use prepared statements to select a specific user -->
+    <!-- <?php
       // using prepared statements is a safer way to search for data in a database
       $data = "Admin";
       // Created a template for grabbing a specific user
@@ -53,7 +53,7 @@
           echo $row['uid'] . "<br>";
         }
       }        
-    ?>
+    ?> -->
 
     <form action="includes/signup.inc.php" method="POST">
       <input type="text" name="first" placeholder="First Name"><br>

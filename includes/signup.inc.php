@@ -2,11 +2,12 @@
   include_once 'dbh.inc.php';
 
   //variables to save form data
-  $first = $_POST['first'];
-  $last = $_POST['last'];
-  $email = $_POST['email'];
-  $uid = $_POST['uid'];
-  $pwd = $_POST['pwd'];
+  //mysqli_real_escape_string($conn, $_POST['first']); - this will stop code from being read in the database
+  $first = mysqli_real_escape_string($conn, $_POST['first']);
+  $last = mysqli_real_escape_string($conn, $_POST['last']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $uid = mysqli_real_escape_string($conn, $_POST['uid']);
+  $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
 
   // Creates new data into database
 

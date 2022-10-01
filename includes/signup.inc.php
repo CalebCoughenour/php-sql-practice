@@ -51,11 +51,20 @@
 
     if (empty($first) || empty($last) || empty($email) || empty($uid) || empty($pwd)) {
       header("Location: ../index.php?signup=empty");
+      exit();
     } else {
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        header("Location: ../index.php?signup=invalidemail");
+      // Checks valid characters in first and last
+      if(!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
+        header("Location: ../index.php?signup=char&email=$email&uid=$uid");
+        exit();
       } else {
-        echo "Signed up!";
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+          header("Location: ../index.php?signup=invalidemail&first=$first&last=$last&uid=$uid");
+          exit();
+        } else {
+          header("Location: ../index.php?signup=success");
+          exit();
+        }
       }
     }
   } else {
